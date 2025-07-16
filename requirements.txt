@@ -1,0 +1,8 @@
+numpy
+scipy
+flask
+pandas
+werkzeug
+scikit-learn
+
+
