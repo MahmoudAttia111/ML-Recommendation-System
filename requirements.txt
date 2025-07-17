@@ -4,5 +4,9 @@ flask
 pandas
 werkzeug
 scikit-learn
+streamlit
+pandas
+requests
+
 
 
