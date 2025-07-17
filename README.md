@@ -5,7 +5,7 @@ A machine learning-based content recommender system that suggests relevant artic
 ---
 
 ## 🚀 Live Demo
-> [🔗 Click here to try the app!](https://your-render-link.onrender.com)  
+> [🔗 Click here to try the app!] (http://192.168.212.192:8501) 
 *Replace the link after deployment on Render.*
 
 ---
