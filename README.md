@@ -5,179 +5,95 @@ A machine learning-based content recommender system that suggests relevant artic
 ---
 
 ## 🚀 Live Demo
-> [🔗 Click here to try the app!] (http://192.168.212.192:8501) 
-*Replace the link after deployment on Render.*
+
+> 🌍 [🔗 Click here to try the app!](https://ml-recommendation-system-xnzjaorjb5rmdrqk7ivfx6.streamlit.app/)
+
+> Just enter a User ID and get personalized article recommendations!
 
 ---
 
 ## 📌 Features
 
-- Personalized content recommendations using **content-based filtering**
-- Text vectorization using **TF-IDF**
-- Preprocessing and cleaning of article text
-- **User profiles** are generated from past behavior
-- Model evaluation with **Recall@5** and **Recall@10**
-- Trained model is saved with **Pickle** for fast inference
-
----
-
-## 🧾 Dataset Used
-
-This project uses the dataset from the [CI&T News Recommender Challenge](https://www.kaggle.com/c/news-recommendation-challenge):
-
-- `shared_articles.csv`: Metadata about articles.
-- `users_interactions.csv`: Logs of user behavior like `VIEW`, `LIKE`, `COMMENT`, etc.
-
----
-
-## 🛠️ Tech Stack
-
-- Python (Pandas, NumPy, Scikit-learn, NLTK)
-- TF-IDF Vectorization
-- Cosine Similarity
-- Pickle for model saving
-- Jupyter / Google Colab for development
-- [Render](https://render.com) for deployment
-
----
-
-## 🧮 How It Works
-
-1. **Preprocessing**:
-   - Clean article titles and text.
-   - Map user interaction types to numeric strengths.
-   - Filter users with at least 5 interactions.
-
-2. **Feature Extraction**:
-   - Vectorize article content using `TfidfVectorizer` with stopwords in English and Portuguese.
-   - Create a sparse TF-IDF matrix.
-
-3. **User Profiles**:
-   - For each user, build a profile by weighting article vectors they've interacted with.
-
-4. **Recommendations**:
-   - For each user, compute cosine similarity between their profile and all articles.
-   - Recommend the top-N articles they haven’t seen yet.
-
-5. **Evaluation**:
-   - Use test data to compute `Recall@5` and `Recall@10`.
-
----
-
-## 📂 Project Structure
-## 💻 Run Locally
-
-### 1. Clone the repo
-
-## 🛠️ Installation
-
-### 1. Clone the repo
-
-```bash
-git clone https://github.com/MahmoudAttia111/ML-Recommendation-System.git
-cd recommendation-system
-
-
-## Install dependencies
-pip install -r requirements.txt
-
-## Download NLTK stopwords
-python
-import nltk
-nltk.download('stopwords')
-
-
-### Run the notebook
-bash
- 
-jupyter notebook "recommend system me.ipynb"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# 🧠 Content-Based News Recommendation System
-
-A machine learning-based content recommender system that suggests relevant articles to users based on their interaction history and the content of the articles (titles and body text). This project uses **TF-IDF vectorization**, **cosine similarity**, and **user profiles** to generate personalized article recommendations.
-
----
-
-## 🚀 Live Demo
-
-> [🔗 Click here to try the app!](https://your-render-link.onrender.com)
-> *Replace the link after deployment on Render.*
-
----
-
-## 📌 Features
-
-* Personalized content recommendations using **content-based filtering**
-* Text vectorization using **TF-IDF**
-* Preprocessing and cleaning of article text
-* **User profiles** are generated from past behavior
-* Model evaluation with **Recall\@5** and **Recall\@10**
-* Trained model is saved with **Pickle** for fast inference
+✅ Personalized recommendations using **content-based filtering**
+✅ Article representation with **TF-IDF vectorization**
+✅ User profiles generated from past behavior
+✅ Uses **cosine similarity** to rank recommendations
+✅ Model evaluation with **Recall\@5** and **Recall\@10**
+✅ Web app powered by **Streamlit**
 
 ---
 
 ## 📟 Dataset Used
 
-This project uses the dataset from the [CI\&T News Recommender Challenge](https://www.kaggle.com/c/news-recommendation-challenge):
+From the [CI\&T News Recommender Challenge](https://www.kaggle.com/c/news-recommendation-challenge):
 
-* `shared_articles.csv`: Metadata about articles.
-* `users_interactions.csv`: Logs of user behavior like `VIEW`, `LIKE`, `COMMENT`, etc.
+* `shared_articles.csv` – Article metadata (title, content, publication info)
+* `users_interactions.csv` – User interactions like `VIEW`, `LIKE`, `COMMENT`
 
 ---
 
 ## 🛠️ Tech Stack
 
 * Python (Pandas, NumPy, Scikit-learn, NLTK)
-* TF-IDF Vectorization
+* TF-IDF Vectorizer
 * Cosine Similarity
-* Pickle for model saving
-* Jupyter / Google Colab for development
-* [Render](https://render.com) for deployment
+* Pickle (for model saving)
+* Streamlit (for web interface)
+* Hosted on: [Streamlit Cloud](https://share.streamlit.io/)
 
 ---
 
-## 🧲 How It Works
+## 🧮 How It Works
 
-1. **Preprocessing**:
+1. **Preprocessing**
 
-   * Clean article titles and text.
-   * Map user interaction types to numeric strengths.
-   * Filter users with at least 5 interactions.
+   * Clean article text (titles + content)
+   * Map interaction types (e.g., LIKE = 3, VIEW = 1, etc.)
+   * Keep users with ≥ 5 interactions
 
-2. **Feature Extraction**:
+2. **TF-IDF Vectorization**
 
-   * Vectorize article content using `TfidfVectorizer` with stopwords in English and Portuguese.
-   * Create a sparse TF-IDF matrix.
+   * Articles are vectorized using TF-IDF
+   * English & Portuguese stopwords removed
 
-3. **User Profiles**:
+3. **User Profiles**
 
-   * For each user, build a profile by weighting article vectors they've interacted with.
+   * Weighted average of article vectors based on interaction strength
 
-4. **Recommendations**:
+4. **Recommendation Engine**
 
-   * For each user, compute cosine similarity between their profile and all articles.
-   * Recommend the top-N articles they haven’t seen yet.
+   * Cosine similarity used to match user profiles with unseen articles
+   * Top-N articles are returned
 
-5. **Evaluation**:
+5. **Evaluation**
 
-   * Use test data to compute `Recall@5` and `Recall@10`.
+   * Recall\@5 and Recall\@10 used to measure quality
+
+---
+
+## 🧪 Sample Evaluation Results
+
+```json
+{
+  "modelName": "Content_Based",
+  "recall@5": 0.275,
+  "recall@10": 0.17
+}
+```
+
+---
+
+## 👤 Sample User IDs for Testing
+
+Copy and paste any of the following IDs into the app:
+
+```
+3937943558206985686
+1874422396201148365
+5598537709124463353
+-4165818767652094649
+2416280733544962613
+```
 
 ---
 
@@ -186,17 +102,16 @@ This project uses the dataset from the [CI\&T News Recommender Challenge](https:
 ```
 ML-Recommendation-System/
 │
-├── recommend system me.ipynb        
-├── requirements.txt 
-├── shared_articles.csv             
-├── users_interactions.csv        
-├── models/                         
-└── README.md                          
+├── recommend system me.ipynb        ← Notebook for building the model
+├── app.py                           ← Streamlit web app
+├── requirements.txt                 ← Project dependencies
+├── shared_articles.csv              ← Articles dataset
+├── users_interactions.csv           ← User interaction logs
+├── models/                          ← Pickled model files
+└── README.md                        ← You're here!
 ```
 
 ---
-You can download the dataset from the official Kaggle competition:
-👉 [CI&T News Recommendation Challenge](https://www.kaggle.com/competitions/news-recommendation-challenge/data)
 
 ## 💻 Run Locally
 
@@ -220,30 +135,38 @@ import nltk
 nltk.download('stopwords')
 ```
 
-### 4. Run the notebook
+### 4. Run the notebook (to train the model)
 
 ```bash
 jupyter notebook "recommend system me.ipynb"
 ```
 
+### 5. Run the Streamlit app
+
+```bash
+streamlit run app.py
+```
+
 ---
 
-## 🧪 Sample Evaluation Results
+## 🌐 Deploy on Streamlit
 
-```json
-Global Metrics:
-{
-  "modelName": "Content_Based",
-  "recall@5": 0.275,
-  "recall@10": 0.17
-}
-```
+This project is deployed on **Streamlit Cloud**:
+👉 [https://ml-recommendation-system-xnzjaorjb5rmdrqk7ivfx6.streamlit.app/](https://ml-recommendation-system-xnzjaorjb5rmdrqk7ivfx6.streamlit.app/)
+
+To deploy your own version:
+
+1. Push your code to GitHub
+2. Go to [share.streamlit.io](https://share.streamlit.io/)
+3. Connect GitHub repo & choose `app.py` as the main file
+4. Add `shared_articles.csv` to the same repo
+5. Done 🎉
 
 ---
 
 ## 🤝 Contributions
 
-Pull requests are welcome! For major changes, please open an issue first to discuss what you would like to change.
+Pull requests are welcome! For major changes, please open an issue first to discuss what you'd like to improve.
 
 ---
 
@@ -255,8 +178,11 @@ This project is licensed under the MIT License.
 
 ## 🙌 Acknowledgements
 
-* Dataset: [[CI\&T News Recommendation Challenge on Kaggle](https://www.kaggle.com/c/news-recommendation-challenge)](https://www.kaggle.com/datasets/gspmoreira/articles-sharing-reading-from-cit-deskdrop)
-* Inspired by several content-based recommendation system tutorials and ML best practices.
+* Dataset: [CI\&T News Recommendation Challenge on Kaggle](https://www.kaggle.com/datasets/gspmoreira/articles-sharing-reading-from-cit-deskdrop)
+* Inspired by many great recommender system tutorials and ML best practices.
+
+---
+ 
 
 
 
