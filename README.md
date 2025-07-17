@@ -25,7 +25,7 @@ A machine learning-based content recommender system that suggests relevant artic
 
 ## 📟 Dataset Used
 
-From the [CI\&T News Recommender Challenge](https://www.kaggle.com/c/news-recommendation-challenge):
+From the [(https://www.kaggle.com/datasets/gspmoreira/articles-sharing-reading-from-cit-deskdrop):
 
 * `shared_articles.csv` – Article metadata (title, content, publication info)
 * `users_interactions.csv` – User interactions like `VIEW`, `LIKE`, `COMMENT`
